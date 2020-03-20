@@ -12,6 +12,7 @@ import { CustomIconExpandComponent } from './responsive/custom-icon-expand/custo
 import { DefaultComponent } from './responsive/default/default.component';
 import { TemplateExpandComponent } from './responsive/template-expand/template-expand.component';
 import { SimpleComponent } from './simple/simple/simple.component';
+import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SimpleComponent } from './simple/simple/simple.component';
     HeaderExtraComponent,
     HeaderTemplateComponent,
     TemplateComponent,
-    CustomIconExpandComponent
+    CustomIconExpandComponent,
+    LazyLoadingComponent
   ],
   imports: [
     BrowserModule,
