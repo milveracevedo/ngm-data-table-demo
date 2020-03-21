@@ -8,7 +8,7 @@ export class EasportService {
 
   private URL: string;
   constructor(private http: HttpClient) {
-    this.URL = 'https://www.easports.com/fifa/ultimate-team/api/fut/item';
+    this.URL = 'https://api.github.com/search/repositories?q=query&page=1&per_page=5';
   }
 
   getItems() {
