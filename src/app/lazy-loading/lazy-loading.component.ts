@@ -37,7 +37,7 @@ export class LazyLoadingComponent implements OnInit {
     this.easportService.getItems(params).subscribe(value => {
       this.items = value.items;
       this.totalItems = value.total_count;
-      this.totalPages = Math.floor(value.total_count / this.size);
+      this.totalPages = 100;
     });
   }
 
