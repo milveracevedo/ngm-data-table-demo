@@ -7,6 +7,7 @@ import { CustomIconExpandComponent } from './responsive/custom-icon-expand/custo
 import { DefaultComponent } from './responsive/default/default.component';
 import { TemplateExpandComponent } from './responsive/template-expand/template-expand.component';
 import {SimpleComponent} from "./simple/simple/simple.component";
+import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
 
 const routes: Routes = [
   { path: 'simple', component: SimpleComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'responsive/default', component: DefaultComponent },
   { path: 'responsive/template', component: TemplateExpandComponent },
   { path: 'responsive/custom-icon-expand', component: CustomIconExpandComponent },
+  { path: 'responsive/lazy-loading', component: LazyLoadingComponent },
   { path: '**', component: SimpleComponent }
 ];
 
