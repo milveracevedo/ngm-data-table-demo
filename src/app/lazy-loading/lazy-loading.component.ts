@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EasportService } from '../core/easport.service';
 
 @Component({
   selector: 'app-lazy-loading',
@@ -20,7 +21,7 @@ export class LazyLoadingComponent implements OnInit {
   };
   index = 1;
 
-  constructor() {
+  constructor(private easportService: EasportService) {
   }
 
 
@@ -28,7 +29,8 @@ export class LazyLoadingComponent implements OnInit {
   }
 
   reloadItems(params) {
-    
+    this.easportService.getItems().subscribe(value => {
+    });
   }
 
   // special properties:

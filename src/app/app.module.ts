@@ -13,6 +13,7 @@ import { DefaultComponent } from './responsive/default/default.component';
 import { TemplateExpandComponent } from './responsive/template-expand/template-expand.component';
 import { SimpleComponent } from './simple/simple/simple.component';
 import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     NgmDataTableModule.forRoot()
   ],
