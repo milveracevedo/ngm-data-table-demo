@@ -7,11 +7,11 @@
   <hr>
   <div class="bootstrap-checkbox">
     <input id="providerType" type="checkbox" [(ngModel)]="column.providerType"/>
-    <label for="providerType">Provider</label>
+    <label for="providerType">Branch</label>
   </div>
   <div class="bootstrap-checkbox">
     <input id="applicationType" type="checkbox" [(ngModel)]="column.applicationType"/>
-    <label for="applicationType">Type</label>
+    <label for="applicationType">Watchers</label>
   </div>
   <hr>
   <ngm-data-table [indexColumn]="column.indexColumn"
@@ -32,60 +32,60 @@
       <span class="fa fa-lg fa-plus-circle text-info" *ngIf="!expanded"></span>
       <span class="fa fa-lg fa-minus-circle text-warning" *ngIf="expanded"></span>
     </ng-template>
-    <ng-template #dataTableExpand let-itemExpand="itemExpand">
-      <p class="text-info" *ngIf="itemExpand.NPI != null">NPI : {{itemExpand.NPI}}</p>
-      <p class="text-warning" *ngIf="itemExpand.providerName != null">Provider Name : {{itemExpand.providerName}}</p>
-      <p *ngIf="itemExpand.status != null && itemExpand.status != 'Pending'">Status : <span class="badge badge-dark">{{itemExpand.status}}</span></p>
-      <p *ngIf="itemExpand.status != null && itemExpand.status == 'Pending'">Status : <span class="badge badge-danger">{{itemExpand.status}}</span></p>
-      <p *ngIf="itemExpand.assignedTo != null">Assigned to : {{itemExpand.assignedTo}}</p>
-      <p class="text-info" *ngIf="itemExpand.applicationType != null">Application type : <span class="badge badge-dark">{{itemExpand.applicationType}}</span></p>
-      <p *ngIf="itemExpand.providerType != null">Provider Type : {{itemExpand.providerType}}</p>
-    </ng-template>
     <ngm-data-table-column
-      [property]="'caseNumber'"
-      [header]="'Number'"
-      [sortable]="true"
+      [property]="'owner'"
+      [header]="'Profile'"
+      [sortable]="false"
       [visible]="true">
-    </ngm-data-table-column>
-    <ngm-data-table-column
-      [property]="'NPI'"
-      [header]="'DNI'"
-      [breakpoints]="'xxs,xs'"
-      [sortable]="true">
       <ng-template #dataTableCell let-item="item">
-        <button class="btn btn-outline-info btn-sm" (click)="buttonalert(item.NPI)">{{item.NPI}}</button>
+        <img src="{{ item.owner.avatar_url }}" width="50" class="rounded-circle">
       </ng-template>
     </ngm-data-table-column>
     <ngm-data-table-column
-      [property]="'providerName'"
-      [header]="'Name'"
+      [property]="'owner'"
+      [header]="'Owner'"
+      [sortable]="false"
+      [visible]="true">
+      <ng-template #dataTableCell let-item="item">
+        {{ item.owner.login }}
+      </ng-template>
+    </ngm-data-table-column>
+    <ngm-data-table-column
+      [property]="'full_name'"
+      [header]="'Full Name'"
+      [breakpoints]="'xxs,xs'"
+      [sortable]="false">
+    </ngm-data-table-column>
+    <ngm-data-table-column
+      [property]="'created_at'"
+      [header]="'Created At'"
       [breakpoints]="'xxs,xs,sm'"
       [sortable]="true"
       [visible]="true">
     </ngm-data-table-column>
     <ngm-data-table-column
-      [property]="'status'"
-      [header]="'Status'"
+      [property]="'updated_at'"
+      [header]="'Updated At'"
       [breakpoints]="'xxs,xs,sm,md'"
       [sortable]="false">
     </ngm-data-table-column>
     <ngm-data-table-column
-      [property]="'assignedTo'"
-      [header]="'Assigned'"
+      [property]="'stargazers_count'"
+      [header]="'Stargazers'"
       [sortable]="true"
       [resizable]="true"
       [visible]="true">
     </ngm-data-table-column>
     <ngm-data-table-column
-      [property]="'applicationType'"
-      [header]="'Type'"
+      [property]="'watchers_count'"
+      [header]="'Watchers'"
       [breakpoints]="'xxs,xs,sm,md'"
       [sortable]="true"
       [visible]="column.applicationType">
     </ngm-data-table-column>
     <ngm-data-table-column
-      [property]="'providerType'"
-      [header]="'Provider'"
+      [property]="'default_branch'"
+      [header]="'Branch'"
       [breakpoints]="'xxs,xs,sm,md,lgs'"
       [sortable]="true"
       [visible]="column.providerType">

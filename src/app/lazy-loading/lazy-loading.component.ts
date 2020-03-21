@@ -9,9 +9,9 @@ import { EasportService } from '../core/easport.service';
 export class LazyLoadingComponent implements OnInit {
 
   items = [];
-  totalItems = 1000;
-  totalPages = 167;
-  size = 6;
+  totalItems = 10;
+  totalPages = 10;
+  size = 10;
   column = {
     providerType: false,
     applicationType: false,
@@ -30,6 +30,9 @@ export class LazyLoadingComponent implements OnInit {
 
   reloadItems(params) {
     this.easportService.getItems().subscribe(value => {
+      this.items = value.items;
+      this.totalItems = value.total_count;
+      this.totalPages = Math.floor(value.total_count / this.size);
     });
   }
 
